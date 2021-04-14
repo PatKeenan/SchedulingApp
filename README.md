@@ -10,3 +10,31 @@ This application is made up of 3 seperate parts.
 - It will be styled using <strong>Tailwind CSS</strong>
 
 The app will have it's own component library to keep the look and feel the same through two front-ends
+
+## Project Setup
+
+### Tailwind Setup for the Webapp/Landing Page
+
+1. Followed the [Tailwind Install guide](https://tailwindcss.com/docs/guides/create-react-app) for create-react-app.
+2. Installed [Tailwind Line Clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp) using the following code
+   ```bash
+   npm install @tailwindcss/line-clamp
+   ```
+3. Add the plugin and configure the Tailwind Config File
+
+   ```js
+   //tailwind.config.js
+   module.exports = {
+     purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+     darkMode: false, // or 'media' or 'class'
+     theme: {
+       extend: {},
+     },
+     variants: {
+       extend: {
+         scale: ["hover", "active"],
+       },
+     },
+     plugins: [require("@tailwindcss/line-clamp")],
+   };
+   ```
