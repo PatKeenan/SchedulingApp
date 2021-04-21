@@ -1,16 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Open+Sans:wght@300;400&display=swap");
+
+/* Mobile First */
+html,
+body {
+  display: block;
+  font-size: 16px;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+label {
+  font-family: "Hind", sans-serif;
+}
+
+h1 {
+  @apply inline-block text-3xl font-extrabold text-gray-900;
+}
+
+h2 {
+  @apply text-2xl font-bold text-gray-800;
+}
+h3 {
+  @apply text-xl font-semibold text-gray-700;
+}
+h4 {
+  @apply text-lg font-medium text-gray-600;
+}
+p {
+  @apply text-base text-gray-500;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Hindi Font Overide in code */
+.hindi {
+  font-family: "Hind", sans-serif !important;
+}
+.spacer {
+  @apply mt-10;
+}
+.card {
+  @apply flex flex-col justify-items-center align-middle px-8 py-12 text-left;
+}
+
+@media only screen and (min-device-width: 480px) {
+  html,
+  body {
+    /*     min-height: 100vh;
+    min-width: 100vw;
+    max-height: auto; */
+  }
 }
