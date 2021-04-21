@@ -5,10 +5,10 @@ import { Link, useParams } from "react-router-dom";
 import { FaAngleLeft } from "react-icons/fa";
 
 const ShowingDetail = () => {
+  //grab the id from the params. The id is set inside the showing page link
   let id = useParams();
   let group = id.id;
 
-  console.log(id.id);
   return (
     <div className="w-full px-10 relative">
       <Link to="/showings">
@@ -17,11 +17,13 @@ const ShowingDetail = () => {
           <span>Back</span>
         </div>
       </Link>
+      {/* Show The list of showings which belong to the showing group */}
       {showingData.map((d) => {
         if (d.groupId === group) {
           return (
             <>
-              <AllShowingsList data={d} />
+              {/* Change Math.random key in production to a real unique id */}
+              <AllShowingsList data={d} key={Math.random() * 100} />
             </>
           );
         }

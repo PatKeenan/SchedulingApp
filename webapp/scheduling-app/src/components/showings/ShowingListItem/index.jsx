@@ -50,7 +50,10 @@ const Index = ({ data }) => {
           <span className="pr-1">People: </span>
           {data.people.map((person) => {
             return (
-              <span className="flex flex-row flex-nowrap pr-2">
+              <span
+                className="flex flex-row flex-nowrap pr-2"
+                key={person.name}
+              >
                 {person.name}
               </span>
             );

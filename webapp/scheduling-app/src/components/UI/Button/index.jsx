@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-
 const Index = ({ title, variant, func }) => {
   return (
     <>
       {variant ? (
         <button
-          className={`bg-${variant}-500 text-white shadow-md px-4 py-2 rounded`}
+          className={`bg-blue-500 text-white shadow-md px-4 py-2 rounded`}
           onClick={func}
         >
           {title}

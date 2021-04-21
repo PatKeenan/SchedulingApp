@@ -22,7 +22,7 @@ const Index = ({ data }) => {
         <div className="grid grid-cols-2 border border-black border-opacity-10 p-4 gap-3 h-full overflow-scroll">
           <div className="overflow-scroll h-full w-full px-3 ">
             {data.data.map((ob) => {
-              return <ShowingListItem data={ob} />;
+              return <ShowingListItem data={ob} key={ob.id} />;
             })}
           </div>
           <div>
