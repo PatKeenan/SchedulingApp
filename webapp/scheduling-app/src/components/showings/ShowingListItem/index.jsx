@@ -74,14 +74,14 @@ const Index = ({ data }) => {
                 func={() => {
                   setDetailView(false);
                 }}
-                variant={"danger"}
+                variant={"red"}
               />
               <Button
                 title={"Save"}
                 func={() => {
                   setDetailView(false);
                 }}
-                variant={"success"}
+                variant={"green"}
               />
             </div>
           </Form>

@@ -15,7 +15,7 @@ const Index = ({ data }) => {
           func={() => {
             setAddNew(true);
           }}
-          variant={"primary"}
+          variant={"blue"}
         />
       </div>
       <div className="flex flex-col h-5/6">
@@ -39,7 +39,7 @@ const Index = ({ data }) => {
           <div className=" absolute right-8 top-10 px-4 py-4">
             <Button
               title={"X Close"}
-              variant={"danger"}
+              variant={"red"}
               func={() => {
                 setAddNew(!addNew);
               }}

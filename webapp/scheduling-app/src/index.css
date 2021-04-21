@@ -57,6 +57,9 @@ code {
   @apply flex flex-col justify-items-center align-middle px-8 py-12 text-left;
 }
 
+/* Button Styles */
+/* .danger, .success, .info */
+
 @media only screen and (min-device-width: 480px) {
   html,
   body {
