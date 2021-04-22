@@ -10,7 +10,7 @@ const Index = ({ title, variant, func }) => {
               ? "bg-red-500"
               : variant === "blue"
               ? "bg-blue-500"
-              : ""
+              : "bg-gray-400"
           } text-white shadow-md px-4 py-2 rounded`}
           onClick={func}
         >
