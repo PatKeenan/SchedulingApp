@@ -5,6 +5,7 @@ import TextInput from "../../FormElements/TextInput";
 
 const Index = ({ data }) => {
   const [detailView, setDetailView] = useState(false);
+  const [deleteView, setDeleteView] = useState(false);
 
   const [propertyAddress, setPropertyAddress] = useState(data.property.address);
 
@@ -22,7 +23,7 @@ const Index = ({ data }) => {
             </button>
             <button
               className="text-gray-50 group-hover:text-red-500 text-sm hover:underline transition ease-in-out duration-150"
-              onClick={() => setDetailView(!detailView)}
+              onClick={() => setDeleteView(!deleteView)}
             >
               (Delete)
             </button>
@@ -64,27 +65,54 @@ const Index = ({ data }) => {
       {detailView && (
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 grid place-items-center">
           <Form bigTitle={data.title}>
-            <h3>Showing: {data.stopNumber}</h3>
+            <label htmlFor="showing">Showing: </label>
+            <input type="number" value={data.stopNumber} id="showing" />
             <TextInput
               type={"text"}
               inputValue={propertyAddress}
               onChange={(e) => setPropertyAddress(e.target.value)}
               chars={data.property.address.length}
             />
-            <div className="">
+            <div className="space-x-4 pt-4 flex justify-end">
               <Button
-                title={"Close"}
+                title={"Cancel"}
                 func={() => {
                   setDetailView(false);
                 }}
-                variant={"red"}
+                variant={`red`}
               />
               <Button
                 title={"Save"}
                 func={() => {
                   setDetailView(false);
                 }}
-                variant={"green"}
+                variant={`green`}
+              />
+            </div>
+          </Form>
+        </div>
+      )}
+      {/* Delete View */}
+      {deleteView && (
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 grid place-items-center">
+          <Form>
+            <h3>
+              Are you sure you want to delete showing number {data.stopNumber}
+            </h3>
+            <div className="space-x-4 pt-4 flex justify-end">
+              <Button
+                title={"Cancel"}
+                func={() => {
+                  setDeleteView(false);
+                }}
+                variant={`gray`}
+              />
+              <Button
+                title={"Delete"}
+                func={() => {
+                  setDeleteView(false);
+                }}
+                variant={`red`}
               />
             </div>
           </Form>

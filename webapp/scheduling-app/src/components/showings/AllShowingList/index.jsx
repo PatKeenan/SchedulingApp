@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import AddNewStop from "../../FormElements/addNewStop";
+import Form from "../../FormElements/Form";
+import TextInput from "../../FormElements/TextInput";
 import ShowingListItem from "../ShowingListItem";
 import Button from "../../UI/Button";
 
@@ -15,7 +16,7 @@ const Index = ({ data }) => {
           func={() => {
             setAddNew(true);
           }}
-          variant={"blue"}
+          variant={`blue`}
         />
       </div>
       <div className="flex flex-col h-5/6">
@@ -35,18 +36,35 @@ const Index = ({ data }) => {
         </div>
       </div>
       {addNew && (
-        <div className="h-auto w-auto z-50 absolute top-0 right-0 bottom-0 left-0 flex justify-center align-middle bg-opacity-80 bg-black">
-          <div className=" absolute right-8 top-10 px-4 py-4">
-            <Button
-              title={"X Close"}
-              variant={"red"}
-              func={() => {
-                setAddNew(!addNew);
-              }}
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 grid place-items-center">
+          <Form bigTitle={"Add Showing"}>
+            {/*   <label htmlFor="showing">Showing: </label>
+            <input type="number" value="0" id="showing" /> */}
+            <TextInput
+              type={"text"}
+              label="Property Address:"
+              placeHolder="310 Main Street, Asbury Park NJ"
+              inputValue={""}
+              /* onChange={(e) => setPropertyAddress(e.target.value)} */
+              /* chars={data.property.address.length} */
             />
-          </div>
-
-          <AddNewStop />
+            <div className="space-x-4 pt-4 flex justify-end">
+              <Button
+                title={"Cancel"}
+                func={() => {
+                  setAddNew(false);
+                }}
+                variant={`red`}
+              />
+              <Button
+                title={"Save"}
+                func={() => {
+                  setAddNew(false);
+                }}
+                variant={`green`}
+              />
+            </div>
+          </Form>
         </div>
       )}
     </>
