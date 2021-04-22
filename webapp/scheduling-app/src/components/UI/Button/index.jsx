@@ -1,10 +1,17 @@
 const Index = ({ title, variant, func }) => {
-  let color = `bg-${variant}-500`;
   return (
     <>
       {variant ? (
         <button
-          className={`${color} text-white shadow-md px-4 py-2 rounded`}
+          className={`${
+            variant === "green"
+              ? "bg-green-500"
+              : variant === "red"
+              ? "bg-red-500"
+              : variant === "blue"
+              ? "bg-blue-500"
+              : ""
+          } text-white shadow-md px-4 py-2 rounded`}
           onClick={func}
         >
           {title}
