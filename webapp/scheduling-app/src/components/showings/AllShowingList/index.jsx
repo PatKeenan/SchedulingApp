@@ -20,13 +20,13 @@ const Index = ({ data }) => {
         />
       </div>
       <div className="flex flex-col h-5/6">
-        <div className="grid grid-cols-2 border border-black border-opacity-10 p-4 gap-3 h-full overflow-scroll">
+        <div className="grid md:grid-cols-2 grid-cols-1 border border-black border-opacity-10 p-4 gap-3 h-full overflow-scroll">
           <div className="overflow-scroll h-full w-full px-3 ">
             {data.data.map((ob) => {
               return <ShowingListItem data={ob} key={ob.id} />;
             })}
           </div>
-          <div>
+          <div className="hidden md:flex">
             <img
               src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg"
               className="h-full w-full object-cover"
@@ -36,36 +36,34 @@ const Index = ({ data }) => {
         </div>
       </div>
       {addNew && (
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 grid place-items-center">
-          <Form bigTitle={"Add Showing"}>
-            {/*   <label htmlFor="showing">Showing: </label>
+        <Form bigTitle={"Add Showing"}>
+          {/*   <label htmlFor="showing">Showing: </label>
             <input type="number" value="0" id="showing" /> */}
-            <TextInput
-              type={"text"}
-              label="Property Address:"
-              placeHolder="310 Main Street, Asbury Park NJ"
-              inputValue={""}
-              /* onChange={(e) => setPropertyAddress(e.target.value)} */
-              /* chars={data.property.address.length} */
+          <TextInput
+            type={"text"}
+            label="Property Address:"
+            placeHolder="310 Main Street, Asbury Park NJ"
+            inputValue={""}
+            /* onChange={(e) => setPropertyAddress(e.target.value)} */
+            /* chars={data.property.address.length} */
+          />
+          <div className="space-x-4 pt-4 flex justify-end">
+            <Button
+              title={"Cancel"}
+              func={() => {
+                setAddNew(false);
+              }}
+              variant={`red`}
             />
-            <div className="space-x-4 pt-4 flex justify-end">
-              <Button
-                title={"Cancel"}
-                func={() => {
-                  setAddNew(false);
-                }}
-                variant={`red`}
-              />
-              <Button
-                title={"Save"}
-                func={() => {
-                  setAddNew(false);
-                }}
-                variant={`green`}
-              />
-            </div>
-          </Form>
-        </div>
+            <Button
+              title={"Save"}
+              func={() => {
+                setAddNew(false);
+              }}
+              variant={`green`}
+            />
+          </div>
+        </Form>
       )}
     </>
   );

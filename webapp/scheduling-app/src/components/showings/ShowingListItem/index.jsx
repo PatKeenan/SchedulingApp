@@ -63,60 +63,56 @@ const Index = ({ data }) => {
       </div>
       {/* Show the Edit/Detail View of the Showing If the DetailView is true */}
       {detailView && (
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 grid place-items-center">
-          <Form bigTitle={data.title}>
-            <label htmlFor="showing">Showing: </label>
-            <input type="number" value={data.stopNumber} id="showing" />
-            <TextInput
-              type={"text"}
-              inputValue={propertyAddress}
-              onChange={(e) => setPropertyAddress(e.target.value)}
-              chars={data.property.address.length}
+        <Form bigTitle={data.title}>
+          <label htmlFor="showing">Showing: </label>
+          <input type="number" value={data.stopNumber} id="showing" />
+          <TextInput
+            type={"text"}
+            inputValue={propertyAddress}
+            onChange={(e) => setPropertyAddress(e.target.value)}
+            chars={data.property.address.length}
+          />
+          <div className="space-x-4 pt-4 flex justify-end">
+            <Button
+              title={"Cancel"}
+              func={() => {
+                setDetailView(false);
+              }}
+              variant={`red`}
             />
-            <div className="space-x-4 pt-4 flex justify-end">
-              <Button
-                title={"Cancel"}
-                func={() => {
-                  setDetailView(false);
-                }}
-                variant={`red`}
-              />
-              <Button
-                title={"Save"}
-                func={() => {
-                  setDetailView(false);
-                }}
-                variant={`green`}
-              />
-            </div>
-          </Form>
-        </div>
+            <Button
+              title={"Save"}
+              func={() => {
+                setDetailView(false);
+              }}
+              variant={`green`}
+            />
+          </div>
+        </Form>
       )}
       {/* Delete View */}
       {deleteView && (
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 grid place-items-center">
-          <Form>
-            <h3>
-              Are you sure you want to delete showing number {data.stopNumber}
-            </h3>
-            <div className="space-x-4 pt-4 flex justify-end">
-              <Button
-                title={"Cancel"}
-                func={() => {
-                  setDeleteView(false);
-                }}
-                variant={`gray`}
-              />
-              <Button
-                title={"Delete"}
-                func={() => {
-                  setDeleteView(false);
-                }}
-                variant={`red`}
-              />
-            </div>
-          </Form>
-        </div>
+        <Form>
+          <h3>
+            Are you sure you want to delete showing number {data.stopNumber}
+          </h3>
+          <div className="space-x-4 pt-4 flex justify-end">
+            <Button
+              title={"Cancel"}
+              func={() => {
+                setDeleteView(false);
+              }}
+              variant={`gray`}
+            />
+            <Button
+              title={"Delete"}
+              func={() => {
+                setDeleteView(false);
+              }}
+              variant={`red`}
+            />
+          </div>
+        </Form>
       )}
     </>
   );

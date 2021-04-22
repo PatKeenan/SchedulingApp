@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Open+Sans:wght@300;400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Open+Sans:wght@300;400&display=swap");
 
 /* Mobile First */
 html,
@@ -57,9 +57,15 @@ code {
   @apply flex flex-col justify-items-center align-middle px-8 py-12 text-left;
 }
 
-/* Button Styles */
-/* .danger, .success, .info */
-
+/* Form Width */
+.standardFormWidth {
+  min-width: 500px;
+}
+/* growWebkit is used on the form inorder to fill the whole screen since tailwind does not have a calc option */
+.growWebkit {
+  min-height: calc(100vh - 69px);
+  /* height: -webkit-fill-available; */
+}
 @media only screen and (min-device-width: 480px) {
   html,
   body {

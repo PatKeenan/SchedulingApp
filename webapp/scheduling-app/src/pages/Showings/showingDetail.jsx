@@ -10,9 +10,9 @@ const ShowingDetail = () => {
   let group = id.id;
 
   return (
-    <div className="w-full px-10 relative">
+    <div className="w-full px-2 md:px-10 relative h-5/6 md:h-full ">
       <Link to="/showings">
-        <div className="flex flex-row space-x-1">
+        <div className="flex flex-row space-x-1 relative">
           <FaAngleLeft className="my-auto" />
           <span>Back</span>
         </div>

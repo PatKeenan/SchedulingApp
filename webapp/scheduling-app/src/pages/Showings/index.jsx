@@ -6,12 +6,12 @@ import showingData from "../../mockData/showings";
 
 const Index = () => {
   return (
-    <div className="w-full px-10 relative">
+    <div className="w-full px-10 relative ">
       {/* Show all of the showing groups */}
-      <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4 pt-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-4 pt-12 h-3/5 md:h-full">
         {showingData.map((data) => {
           return (
-            <div className=" max-h-screen overflow-scroll">
+            <div className="max-h-auto">
               <Link to={`/showings/${data.groupId}`}>
                 <div className="bg-gray-50 shadow-md rounded p-6 flex flex-col group my-3 hover:shadow-lg transition duration-150 ease-in-out text-gray-700 cursor-pointer">
                   <p> {data.title}</p>
